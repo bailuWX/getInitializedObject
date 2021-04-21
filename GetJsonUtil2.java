@@ -1,13 +1,5 @@
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2021-2021. All rights reserved.
- */
-
-package com.huawei.driveinsight.thaw;
-
-import com.huawei.driveinsight.thaw.bean.result.ResultSubscriptionAnalysisQuery;
 
 import com.alibaba.fastjson.JSONObject;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -53,8 +45,6 @@ public class GetJsonUtil {
 
     public static void main(String[] args) throws Exception {
         // new GetJsonUtil().getInitializedObject(WxUserEntity.class);
-        ResultSubscriptionAnalysisQuery initializedObject = new GetJsonUtil().getInitializedObject(
-            ResultSubscriptionAnalysisQuery.class);
 
     }
 
