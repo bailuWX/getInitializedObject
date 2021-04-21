@@ -1,5 +1,5 @@
-
 import com.alibaba.fastjson.JSONObject;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -24,6 +24,9 @@ public class GetJsonUtil {
     private HashMap<Object, Object> getParamValueMap() {
         HashMap<Object, Object> paramValueMap = new HashMap<>();
         int num = (int) (Math.random() * 100 + 1);
+
+        byte b1 = 1;
+        float fnum = (float) (Math.random() * 100 + 1.1F);
         byte[] bytes = {1, 2, 3};
         paramValueMap.put(String.class, "test" + num);
 
@@ -33,18 +36,33 @@ public class GetJsonUtil {
         paramValueMap.put(Long.class, (long) num);
         paramValueMap.put(long.class, num);
 
-        paramValueMap.put(Double.class, (double) num);
-        paramValueMap.put(double.class, num);
+        paramValueMap.put(Double.class, (double) fnum);
+        paramValueMap.put(double.class, (double) fnum);
+
+        paramValueMap.put(Float.class, fnum);
+        paramValueMap.put(float.class, fnum);
 
         paramValueMap.put(BigDecimal.class, new BigDecimal(10));
 
         paramValueMap.put(byte[].class, bytes);
 
+        paramValueMap.put(Byte.class, b1);
+        paramValueMap.put(byte.class, b1);
+
+        paramValueMap.put(Short.class, (short) b1);
+        paramValueMap.put(short.class, (short) b1);
+
+        paramValueMap.put(char.class, '1');
+        paramValueMap.put(Character.class, '1');
+
+        paramValueMap.put(boolean.class, false);
+        paramValueMap.put(Boolean.class, false);
         return paramValueMap;
     }
 
     public static void main(String[] args) throws Exception {
-        // new GetJsonUtil().getInitializedObject(WxUserEntity.class);
+     StatusDto initializedObject = new GetJsonUtil2().getInitializedObject(StatusDto.class);
+        System.out.println(initializedObject.toString());
 
     }
 
